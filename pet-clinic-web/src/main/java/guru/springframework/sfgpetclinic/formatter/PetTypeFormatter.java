@@ -28,7 +28,7 @@ public class PetTypeFormatter implements Formatter<PetType> {
         Collection<PetType> findPetTypes = petTypeService.findAll();
 
         return findPetTypes.stream()
-                .filter( petType -> petType.equals(text))
+                .filter( petType -> petType.getName().equals(text))
                 .findAny()
                 .orElseThrow(() -> new ParseException("type not found: " + text, 0));
     }
